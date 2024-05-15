@@ -1,10 +1,18 @@
-
 public class Livro {
     private String titulo;
     private String autor;
     private String editora;
     private int anoPublicacao;
-    
+    private int id;
+
+    Livro(String titulo, String autor, String editora, int anoPublicacao, int id) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.editora = editora;
+        this.anoPublicacao = anoPublicacao;
+        this.id = id;
+    }
+
     String getTitulo() {
         return this.titulo;
     }
@@ -31,6 +39,14 @@ public class Livro {
     }
     void setAnoPublicacao(int anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
+    }
+
+    int getId() {
+        return this.id;
+    }
+
+    void setId(int id) {
+        this.id = id;
     }
 
     void imprimir() {
