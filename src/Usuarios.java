@@ -1,11 +1,19 @@
 import java.util.Date;
+
 public class Usuarios {
 
     private String nome;
     private String cpf;
     private Date dataNasc;
-    private int id;
+    public static int id = 0;
     protected Livro[] livrosAlugados;
+
+    Usuarios (String nome, String cpf){
+        this.nome = nome;
+        this.cpf = cpf;
+        dataNasc = new Date();
+        id++;
+    }
 
     boolean devolverLivro(Livro livro){
 
@@ -62,7 +70,7 @@ public class Usuarios {
     // setter
 
     void setNome( String nome){
-         this.nome = nome;
+        this.nome = nome;
     }
 
     void setCpf( String cpf){
