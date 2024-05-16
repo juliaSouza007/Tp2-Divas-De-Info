@@ -17,7 +17,7 @@ public class Usuarios {
 
     boolean devolverLivro(Livro livro){
 
-        for(int i=0; i<livrosAlugados.length; i++){
+        for(int i = 0; i < livrosAlugados.length; i++){
             if(livrosAlugados[i].getId() == livro.getId()) {
                 livrosAlugados[i]=null;
                 System.out.println("Devolução do livro '"+ livro.getTitulo() +"' concluída.");
@@ -30,8 +30,7 @@ public class Usuarios {
 
     boolean pegarLivro (Livro livro){
 
-        for(int i=0; i<livrosAlugados.length; i++){
-
+        for(int i = 0; i < livrosAlugados.length; i++){
             if(livrosAlugados[i] == null) {
                 livrosAlugados[i] = livro;
                 System.out.println("Empréstimo do livro '"+ livro.getTitulo() +"' concluído.");
