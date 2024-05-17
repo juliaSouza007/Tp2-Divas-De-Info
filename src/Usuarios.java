@@ -15,12 +15,12 @@ public class Usuarios {
         id++;
     }
 
-    boolean devolverLivro(Livro livro){
+    boolean devolverLivro(Livro livro, Usuarios usuario){
 
         for(int i = 0; i < livrosAlugados.length; i++){
             if(livrosAlugados[i].getId() == livro.getId()) {
                 livrosAlugados[i]=null;
-                System.out.println("Devolução do livro '"+ livro.getTitulo() +"' concluída.");
+                System.out.println("Devolução do livro '"+ livro.getTitulo() +"' para '"+ usuario.getNome() +"' concluído.");
                 return true;
             }
         }
@@ -28,23 +28,26 @@ public class Usuarios {
         return false;
     }
 
-    boolean pegarLivro (Livro livro){
+    boolean pegarLivro (Livro livro, Usuarios usuario){
 
         for(int i = 0; i < livrosAlugados.length; i++){
             if(livrosAlugados[i] == null) {
                 livrosAlugados[i] = livro;
-                System.out.println("Empréstimo do livro '"+ livro.getTitulo() +"' concluído.");
+                System.out.println("Empréstimo do livro '"+ livro.getTitulo() +"' para '"+ usuario.getNome() +"' concluído.");
                 return true;
             }
         }
         System.out.println("Erro ao alugar '" + livro.getTitulo() + "'.");
+        System.out.println("Livro está emprestado com outro usuario da biblioteca.");
         return false;
     }
 
     void imprimirLivros(){
         System.out.println("Livros alugados pelo usuário '" + this.nome + "':");
         for(int i=0; i<livrosAlugados.length; i++){
-            livrosAlugados[i].imprimir();
+            if (livrosAlugados[i] != null) {
+                livrosAlugados[i].imprimir();
+            }
         }
     }
 
